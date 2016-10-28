@@ -109,18 +109,32 @@
                                     <constraint firstAttribute="height" constant="30" id="sMK-Ta-pTk"/>
                                 </constraints>
                                 <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="onSendMessageButton:" destination="dg9-uH-PXe" eventType="touchUpInside" id="om7-nm-YsO"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-An-AsC">
-                                <frame key="frameInset" minY="109" width="375" height="558"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-An-AsC">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yP5-je-Qae">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" rowHeight="77" id="yP5-je-Qae">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yP5-je-Qae" id="0Mr-dj-va2">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                            <frame key="frameInset" width="375" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRI-oj-84n">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IRI-oj-84n" firstAttribute="leading" secondItem="0Mr-dj-va2" secondAttribute="leadingMargin" id="4TC-A1-wj1"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="IRI-oj-84n" secondAttribute="bottom" constant="5" id="HKZ-VC-aNz"/>
+                                                <constraint firstItem="IRI-oj-84n" firstAttribute="top" secondItem="0Mr-dj-va2" secondAttribute="topMargin" id="b6q-ub-WWV"/>
+                                                <constraint firstItem="IRI-oj-84n" firstAttribute="trailing" secondItem="0Mr-dj-va2" secondAttribute="trailingMargin" id="jIM-xl-8gC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
@@ -129,12 +143,20 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pQa-Z2-3pq" firstAttribute="leading" secondItem="ZRy-jP-t29" secondAttribute="leading" constant="7" id="5BM-As-hVi"/>
+                            <constraint firstItem="5Pb-An-AsC" firstAttribute="leading" secondItem="ZRy-jP-t29" secondAttribute="leading" id="ETD-OU-dkz"/>
+                            <constraint firstItem="hSO-bF-Kr5" firstAttribute="top" secondItem="5Pb-An-AsC" secondAttribute="bottom" id="JE9-wd-Ccf"/>
                             <constraint firstItem="2Sx-Cx-m0f" firstAttribute="top" secondItem="fTC-GV-QIC" secondAttribute="bottom" constant="8" id="LSh-5P-Oj8"/>
+                            <constraint firstItem="5Pb-An-AsC" firstAttribute="top" secondItem="2Sx-Cx-m0f" secondAttribute="bottom" constant="7" id="Pgk-dA-wcA"/>
                             <constraint firstAttribute="trailing" secondItem="2Sx-Cx-m0f" secondAttribute="trailing" constant="5" id="cmh-Rh-m8J"/>
                             <constraint firstItem="pQa-Z2-3pq" firstAttribute="top" secondItem="fTC-GV-QIC" secondAttribute="bottom" constant="8" id="leH-GA-NbK"/>
+                            <constraint firstAttribute="trailing" secondItem="5Pb-An-AsC" secondAttribute="trailing" id="neu-ci-deC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="ZhN-F6-PQb"/>
+                    <connections>
+                        <outlet property="messageField" destination="pQa-Z2-3pq" id="AXl-IF-RH6"/>
+                        <outlet property="tableView" destination="5Pb-An-AsC" id="0oW-I0-Pe1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ep7-Mo-jfn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
