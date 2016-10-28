@@ -85,7 +85,7 @@
         <!--Chat-->
         <scene sceneID="oZF-mz-6pP">
             <objects>
-                <viewController id="dg9-uH-PXe" customClass="ChatViewController" customModule="Chat_client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chatController" id="dg9-uH-PXe" customClass="ChatViewController" customModule="Chat_client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fTC-GV-QIC"/>
                         <viewControllerLayoutGuide type="bottom" id="hSO-bF-Kr5"/>
@@ -93,7 +93,46 @@
                     <view key="view" contentMode="scaleToFill" id="ZRy-jP-t29">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Say something..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pQa-Z2-3pq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="314" id="Ssy-dc-eqh"/>
+                                    <constraint firstAttribute="height" constant="30" id="fVh-Ak-ad5"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Sx-Cx-m0f">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="Zt9-wo-mcz"/>
+                                    <constraint firstAttribute="height" constant="30" id="sMK-Ta-pTk"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Pb-An-AsC">
+                                <frame key="frameInset" minY="109" width="375" height="558"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="yP5-je-Qae">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yP5-je-Qae" id="0Mr-dj-va2">
+                                            <frame key="frameInset" width="375" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="pQa-Z2-3pq" firstAttribute="leading" secondItem="ZRy-jP-t29" secondAttribute="leading" constant="7" id="5BM-As-hVi"/>
+                            <constraint firstItem="2Sx-Cx-m0f" firstAttribute="top" secondItem="fTC-GV-QIC" secondAttribute="bottom" constant="8" id="LSh-5P-Oj8"/>
+                            <constraint firstAttribute="trailing" secondItem="2Sx-Cx-m0f" secondAttribute="trailing" constant="5" id="cmh-Rh-m8J"/>
+                            <constraint firstItem="pQa-Z2-3pq" firstAttribute="top" secondItem="fTC-GV-QIC" secondAttribute="bottom" constant="8" id="leH-GA-NbK"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Chat" id="ZhN-F6-PQb"/>
                 </viewController>
@@ -104,7 +143,7 @@
         <!--Navigation Controller-->
         <scene sceneID="A0x-Os-6IV">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WiY-lF-Qsy" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navChatController" automaticallyAdjustsScrollViewInsets="NO" id="WiY-lF-Qsy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qfi-xh-Pt8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

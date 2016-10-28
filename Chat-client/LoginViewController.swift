@@ -25,13 +25,19 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     @IBAction func onLoginButton(_ sender: AnyObject) {
-        let chatController = ChatViewController(nibName: nil, bundle: nil)
-        self.present(chatController, animated: true, completion: nil)
-        
+        PFUser.logInWithUsername(inBackground: emailField.text!, password: passwordField.text!) {
+            (user, error) in
+            if user != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let chatController = storyboard.instantiateViewController(withIdentifier: "chatController")
+                self.present(chatController, animated: true, completion: nil)
+            } else {
+                print(error?.localizedDescription)
+            }
+        }
     }
-    
+
     @IBAction func onSignUpButton(_ sender: AnyObject) {
         let user = PFUser()
         user.email = emailField.text
@@ -43,7 +49,8 @@ class LoginViewController: UIViewController {
                 print(error.localizedDescription)
             } else {
                 print("success")
-                let chatController = ChatViewController(nibName: nil, bundle: nil)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let chatController = storyboard.instantiateViewController(withIdentifier: "chatController")
                 self.present(chatController, animated: true, completion: nil)
             }
         }
